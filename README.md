@@ -5,4 +5,5 @@ This repository contains all the deliverables of the project for "Industrial Aut
 The folders are organized in the following way:
 - matlab contains the Matlab scripts and functions
 - tia portal contains the entire Tia Portal project folder to be imported
-- 
+- scenes contains the scenes to be imported in CoppeliaSim
+- documentation contains the official detailed documentation in LateX
