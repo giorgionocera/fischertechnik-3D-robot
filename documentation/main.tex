@@ -1,0 +1,264 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PREAMBOLO DEL DOCUMENTO %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,11pt,oneside,openright,reqno,table]{book}
+% openany - fa iniziare i capitoli direttamente nella pagina successiva
+% openright - fa iniziare i capitoli nella prima pagina destra disponibile 
+% fleqn  - allinea le formule a sinistra anziché centrarle
+% leqno - dispone la numerazione delle formule sulla sinistra o destra
+% reqno - dispone la numerazione delle formule sulla destra
+%
+\usepackage{packages}
+% Per non appesantire troppo questo file
+% quasi tutti i pacchetti usati sono salvati in packages.sty
+%
+
+% Per avere la parola BOZZA scritta su tutte le pagine
+\usepackage[italian,light,first,bottomafter]{draftcopy}
+% funziona solo in modalità PS
+% Invece per i PDF ho risolto così:
+% pdftk tesi.pdf background bozza.pdf output tesi_bozza.pdf
+%
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{setspace}   %Allows double spacing with the \doublespacing command
+\usepackage{listings}
+\usepackage{color}
+\usepackage{interval}
+\usepackage{gensymb}
+
+\usepackage{booktabs, multirow} % for borders and merged ranges
+\usepackage{soul}% for underlines
+\usepackage[table]{xcolor} % for cell colors
+\usepackage{changepage,threeparttable} % for wide tables
+
+\usepackage{pdfpages}
+
+\usepackage{siunitx}
+
+\definecolor{tablelightgray}{gray}{0.9}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+%\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}		
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+\lstdefinelanguage{CSS}{
+  keywords={color,background-image:,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, transition:, transform:, transition-property, transition-duration, transition-timing-function},	
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={:},
+  alsodigit={-}
+}
+%configurazione codice php
+
+% JavaScript
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,	
+  alsoletter={<>=-},	
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  % General
+  >,
+  % Standard tags
+	<!DOCTYPE,
+  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+	% body
+	</body, <body,
+	% Divs
+	</div, <div, </div>, 
+	% Paragraphs
+	</p, <p, </p>,
+	% scripts
+	</script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+  },
+  ndkeywords={
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+	% CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+
+\lstdefinestyle{htmlcssjs} {%
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,	
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=HTML5,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},	
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+}
+\lstdefinelanguage{Dockerfile}
+{
+  morekeywords={FROM, RUN, CMD, LABEL, MAINTAINER, EXPOSE, ENV, ADD, COPY,
+    ENTRYPOINT, VOLUME, USER, WORKDIR, ARG, ONBUILD, STOPSIGNAL, HEALTHCHECK,
+    SHELL},
+  morecomment=[l]{\#},
+  morestring=[b]"
+}
+
+\lstdefinestyle{lua}{
+  language=[5.1]Lua,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{magenta},
+  stringstyle=\color{blue},
+  commentstyle=\color{black!50}
+  identifierstyle=\color{orange}
+}
+
+
+\usepackage[toc,page]{appendix}
+
+ \renewcommand{\appendixname}{Appendice}
+\renewcommand{\appendixpagename}{Appendici}
+
+\usepackage[english]{babel}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   DOCUMENTO VERO E PROPRIO    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% FRONTESPIZIO %
+\include{frontmatter/frontespizio}
+%
+
+\frontmatter
+% quello che segue è in numerazione romana e i capitoli non verranno numerati
+% se non si vuole che compaia il numero di pagina basta usare il comando:
+%\nonumber
+
+% SOMMARIO %
+%\include{frontmatter/sommario}
+% INDICI %
+\include{frontmatter/indici}
+% GLOSSARIO
+%\include{frontmatter/glossario}
+% per aggiornarlo si deve eseguire da terminale:
+% makeindex -s myDoc.ist -t myDoc.alg -o myDoc.acr myDoc.acn
+% per inserire una voce nell'elenco:
+% \newglossaryentry{voce_etichetta}{name={voce}, description={descrizione}}
+% se non compare direttamente nel testo va inizializzata con:
+% \glsadd{voce_etichetta}
+% oppure se viene richiamata all'interno del testo:
+% \gls{voce_etichetta}
+% SIMBOLI E NOTAZIONI %
+%\include{frontmatter/simboli}
+% per aggiornarlo si deve eseguire da terminale:
+% makeindex -s myDoc.ist -t myDoc.glg -o myDoc.gls myDoc.glo
+% per inserire una voce nell'elenco:
+% \newglossaryentry{voce_etichetta}{name={voce}, description={descrizione}}
+% se non compare direttamente nel testo va inizializzata con:
+% \glsadd{voce_etichetta}
+% oppure se viene richiamata all'interno del testo:
+% \gls{voce_etichetta}
+
+\mainmatter
+% quello che segue sarà in numerazione araba e i capitoli verranno numerati
+%\part{Studio iniziale}
+% CAPITOLI
+\include{capitolo1/capitolo1}
+\include{capitolo2/capitolo2}
+\include{capitolo3/capitolo3}
+\include{capitolo4/capitolo4}
+\include{capitolo5/capitolo5}
+
+\include{appendice/appendice}
+% APPENDICI
+\appendix
+\include{appendice1/appendice1}
+%\include{appendice2/appendice2}
+
+\backmatter
+% quello che segue sarà in numerazione araba e i capitoli non verranno numerati
+
+% BIBLIOGRAFIA CON BIBTEX %
+\include{backmatter/bibliografia}
+% Tutte le fonti sono descritte in bibliografia.bib
+% vengono richiamate nel testo con:
+% \citep{etichetta}
+%
+% Per generare la bibliografia bisogna lanciare da terminale:
+% bibtex myDoc (senza .tex)
+% Esistono anche altri stili come: plain,alpha,unsrt,abbrv 
+%
+
+\end{document}\grid

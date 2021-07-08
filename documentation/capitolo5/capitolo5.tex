@@ -1,0 +1,22 @@
+\chapter{Conclusion}
+
+\section{Reached goals}
+
+The goals of the project were reached. In particular:
+\begin{enumerate}
+    \item An high level control system of the robotic arm was realized, in fact some high level functions were realized in Matlab in order to communicate with the PLC. The PLC was programmed using TIA Portal in order to connect to Matlab through TCP protocol and to move the robot depending on the values received by Matlab. In addition to that, some other control actions were realized using TIA portal:
+    \begin{itemize}
+        \item the emergency stop and the reset of the robot;
+        \item the control of some LEDs in order to understand the actual state of the robot.
+    \end{itemize} 
+    \item A 3D model of the robot was realized in CoppeliaSim and the direct and inverse kinematics were computed. In addition to this, the Matlab high level function was adapted doing some conversions of the input values. The function accepts them in the same form obtained computing the inverse kinematic of the robot in CoppeliaSim and send them to the PLC in the form corresponding to the one obtained by the robot sensors for those values. 
+    \item The model was validated performing a task in the real world. In particular the task was firstly simulated in CoppeliaSim and then was executed in the real world using a Matlab script that executes the corresponding high level function that were defined. As result the behaviour of the robot was the expected one.
+\end{enumerate}
+
+\section{Future works}
+This work can be extended. Some ideas for future works are:
+\begin{itemize}
+    \item to update the 3D model in order to have the possibility to use the gripper also in simulations;
+    \item to allow CoppeliaSim to communicate with Matlab in order to automatize the execution of the simulated scenes into the real world;
+    \item to create other simulation scenes and tasks that can be simulated and then executed by the robot.
+\end{itemize}
